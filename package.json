@@ -1,0 +1,25 @@
+{
+  "name": "nothing-mock",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "A chainable, callable mock object which always returns itself",
+  "author": "Vladimir Simonov <slmgc@ya.ru>",
+  "homepage": "https://github.com/slmgc/Nothing",
+  "repository": "github:slmgc/Nothing",
+  "main": "dist/nothing-mock.js",
+  "module": "dist/nothing-mock.es.js",
+  "jsnext:main": "dist/nothing-mock.es.js",
+  "scripts": {
+	  "build": "microbundle --strict"
+  },
+  "devDependencies": {
+    "microbundle": "^0.4.4"
+  },
+  "keywords": [
+    "nothing",
+    "chainable",
+    "callable",
+    "mock",
+    "testing"
+  ]
+}
