@@ -10,7 +10,7 @@
   "module": "dist/nothing-mock.es.js",
   "jsnext:main": "dist/nothing-mock.es.js",
   "scripts": {
-	  "build": "microbundle --strict"
+    "build": "microbundle --strict"
   },
   "devDependencies": {
     "microbundle": "^0.4.4"
