@@ -104,7 +104,7 @@ posts.map(renderPostWithComments).join('') /* returns:
 serialize({posts}) // changes all Nothing values to null
 ```
 
-### Working with arrays
+### Filtering and helpers
 ```js
 import {Nothing, toBool, isNothing, isSomething} from 'nothing-mock'
 
