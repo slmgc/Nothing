@@ -2,7 +2,7 @@
 
 [![npm package][npm-badge]][npm] [![npm package][npm-downloads]][npm]
 
-**Nothing** is a chainable, callable mock object which always returns itself. You can use it instead of `null` and `undefined` values so you don't have to place safety checks all over your code. The implementation uses `Symbol` and `Proxy` behind the hood so you might need to use apropriate polyfills in case you want to support older browsers.
+**Nothing** is a chainable, callable mock object which always returns itself. You can use it instead of `null` and `undefined` values so you don't have to place safety checks all over your code. The implementation uses `Symbol` and `Proxy` behind the hood so your environment has to support it.
 
 ## How to install
 
