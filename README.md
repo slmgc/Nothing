@@ -168,6 +168,9 @@ somePromise
 	.then(() => ({result: Nothing}))
 	.then((result) => result) // promise resolves
 ```
+## Alternatives
+### Lodash
+Lodash has a `_.get` operator which takes an array `_.get(context, ['namespace', 'actions', 'someAction'])` or string `_.get(context, 'namespace.actions.someAction')` and returns `null` if one of the properties doesn't exist. You can see the documentation [here](https://lodash.com/docs/#get).
 
 ## License
 MIT
