@@ -174,6 +174,7 @@ somePromise
 ## FAQ
 
 Q: Proxies are slow and there is a runtime overhead. Why should I use **Nothing**?
+
 A: You should keep a few things in mind:
 
 1. "Premature optimization is the root of all evil" - Donald E. Knuth.
@@ -203,9 +204,11 @@ const someFunction = (param) => {
 Many functional programming languages either don't have or don't endorse the use of imperative constructs such as try/catch blocks because they introduce so-called side effects which actually make it hard to debug and reason about the code. And programs which are written in functional programming languages are considered to be less error-prone and easier to support.
 
 Q: I have to support older browsers, is there a `Proxy` polyfill?
+
 A: Sadly, there isn't one which supports **Nothing**-related case. But you can use **Nothing** with unit tests as Node supports Proxies.
 
 Q: Why should I use **Nothing** if there are better alternatives like [optional chaining] or [lodash.get]?
+
 A: Each of these solutions have their pros and cons. Your choice should depend on the use-case:
 
 1. Optional chaining syntax would be the best choice, but it requires a transpilation step as modern browsers don't support the syntax and it might take a while before it will get into the future ECMAScript standard.
@@ -249,6 +252,7 @@ const get = (o, a) => a.reduce((p, c) => p && p[c], o)
 ```
 
 Q: I am still not convinced and ain't gonna use **Nothing**!
+
 A: Thanks for letting me know! Seriously, it's your choice, I am down with it.
 
 ## License
