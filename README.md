@@ -11,6 +11,15 @@ npm i -S nothing-mock
 ```
 
 ## How to use
+
+### A simple example
+```js
+import {Nothing} from 'nothing-mock'
+
+const a = Nothing
+a.b.c.d().test.array[0].map((x) => x + 1).e.someFn() // returns Nothing
+```
+
 ### Property accessors
 ```js
 import {Nothing} from 'nothing-mock'
