@@ -16,8 +16,8 @@ npm i -S nothing-mock
 ```js
 import {Nothing} from 'nothing-mock'
 
-const a = Nothing
-a.b.c.d().test.array[0].map((x) => x + 1).e.someFn() // returns Nothing
+const foo = Nothing
+foo.bar.baz.qux().spam.ham[0].map((x) => x + 1).eggs.someFn() // returns Nothing
 ```
 
 ### Property accessors
@@ -25,22 +25,22 @@ a.b.c.d().test.array[0].map((x) => x + 1).e.someFn() // returns Nothing
 import {Nothing} from 'nothing-mock'
 
 // A regular function with null-checks
-function exampleFnWithNullChecks(obj) {
-	return obj &&
-		obj.namespace &&
-		obj.namespace.actions &&
-		obj.namespace.actions.someAction &&
-		obj.namespace.actions.someAction()
+function someFnWithNullChecks(foo) {
+	return foo &&
+		foo.bar &&
+		foo.bar.baz &&
+		foo.bar.baz.qux &&
+		foo.bar.baz.qux()
 }
 
 // There is no need to check for null/undefined if you use Nothing
-function exampleFn(obj) {
-	return obj.namespace.actions.someAction()
+function someFn(foo) {
+	return foo.bar.baz.qux()
 }
 
-exampleFnWithNullChecks(null) // returns null
-exampleFn(Nothing) // returns Nothing
-exampleFn(null) // throws an exception
+someFnWithNullChecks(null) // returns null
+someFn(Nothing) // returns Nothing
+someFn(null) // throws an exception
 ```
 
 ### JSON serialization/deserialization
@@ -195,7 +195,7 @@ Q: I believe that it's hard to understand the logic as the code will fail silent
 
 ```js
 try {
-	a.b.c()
+	foo.bar.baz()
 } catch (e) {
 	// deal with it somehow
 }
@@ -204,9 +204,9 @@ try {
 A: As for the failing silently statement, you can always check the result in cases where a function call should never return **Nothing** and then handle it properly:
 
 ```js
-const someFunction = (param) => {
-	const result = a.b.c(param)
-	return isNothing(result) ? handleNothing(param) : result
+const someFunction = (handleNothing, arg) => {
+	const result = foo.bar.baz(arg)
+	return isNothing(result) ? handleNothing(arg) : result
 }
 ```
 
@@ -214,7 +214,7 @@ Many functional programming languages either don't have or don't endorse the use
 
 Q: I have to support older browsers, is there a `Proxy` polyfill?
 
-A: Sadly, there isn't one which supports **Nothing**-related case. But you can use **Nothing** with unit tests as Node supports Proxies.
+A: Sadly, there isn't one which supports **Nothing**. But you can use **Nothing** for unit tests as Node supports Proxies.
 
 Q: Why should I use **Nothing** if there are better alternatives like [optional chaining] or [lodash.get]?
 
@@ -226,35 +226,35 @@ A: Each of these solutions have their pros and cons. Your choice should depend o
 ```js
 import get from 'lodash.get'
 
-var a = null
-get(a, ['b', 'c'])() // this will throw an exception
+var foo = null
+get(foo, ['bar', 'baz'])() // this will throw an exception
 
-var c = get(a, ['b', 'c'])
-c && c() // this won't work if `c` should be bound to the context of `b`
+var baz = get(foo, ['bar', 'baz'])
+baz && baz() // this won't work if `baz` should be bound to the context of `bar`
 
 // For example:
-var a = {
-	b: {
-		d: 'hello',
-		c() {
-			console.log(this.d)
-		}
+var foo = {
+	bar: {
+		baz() {
+			console.log(this.qux)
+		},
+		qux: 'hello'
 	}
 }
 
-a.b.c() // outputs "hello"
-get(a, ['b', 'c'])() // outputs "undefined"
+foo.bar.baz() // outputs "hello"
+get(foo, ['bar', 'baz'])() // outputs "undefined"
 
 // This would be a proper solution:
-var b = get(o, ['b'])
-var c = get(b, ['c'])
-c && c.call(b)
+var bar = get(foo, ['bar'])
+var baz = get(bar, ['baz'])
+baz && baz.call(bar)
 
 // But then it's easier to get back to the regular syntax:
-a && a.b && a.b.c && a.b.c()
+foo && foo.bar && foo.bar.baz && foo.bar.baz()
 
 // And good luck using `get` for something like this:
-a.b.c()[0].map(() => { /* do something */ })
+foo.bar.baz()[0].map(() => { /* do something */ })
 
 // BTW, an implementation of a lodash-like `get` helper-function is basically a one-liner:
 const get = (o, a) => a.reduce((p, c) => p && p[c], o)
