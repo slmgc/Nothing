@@ -1,6 +1,6 @@
 # Nothing
 
-[![npm package][npm-badge]][npm]
+[![npm package][npm-badge]][npm] [![npm package][npm-downloads]][npm]
 
 **Nothing** is a chainable, callable mock object which always returns itself. You can use it instead of `null` and `undefined` values so you don't have to place safety checks all over your code. The implementation uses [Symbol] and [Proxy] behind the hood which are widely supported by modern desktop and mobile browsers and can be used without a polyfill.
 
@@ -261,5 +261,6 @@ MIT
 [Symbol]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol#Browser_compatibility
 [npm]: https://www.npmjs.org/package/nothing-mock
 [npm-badge]: https://img.shields.io/npm/v/nothing-mock.svg
+[npm-downloads]: https://img.shields.io/npm/dm/nothing-mock.svg
 [optional chaining]: https://www.npmjs.com/package/babel-plugin-transform-optional-chaining
 [lodash.get]: https://www.npmjs.com/package/lodash.get
