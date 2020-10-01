@@ -177,15 +177,15 @@ somePromise
 
 ## FAQ
 
-Q: Proxies are slow and there is a runtime overhead. Why should I use **Nothing**?
+Q-1: Proxies are slow and there is a runtime overhead. Why should I use **Nothing**?
 
 A: You should keep a few things in mind:
 
 1. "Premature optimization is the root of all evil" - Donald E. Knuth.
-1. Have you checked the performance of **Nothing**? Does it really impact the performance of your code? If it does, you can always opt out using **Nothing** for performance-critical parts of your code.
-1. You can use **Nothing** for writing unit tests which are less likely to be performance-dependant.
+2. Have you checked the performance of **Nothing**? Does it really impact the performance of your code? If it does, you can always opt out using **Nothing** for performance-critical parts of your code.
+3. You can use **Nothing** for writing unit tests which are less likely to be performance-dependant.
 
-Q: I believe that it's hard to understand the logic as the code will fail silently if I would use **Nothing**. I prefer to use try/catch blocks instead, e.g.:
+Q-2: I believe that it's hard to understand the logic as the code will fail silently if I would use **Nothing**. I prefer to use try/catch blocks instead, e.g.:
 
 ```js
 try {
@@ -206,12 +206,12 @@ const someFunction = (handleNothing, arg) => {
 }
 ```
 
-Q: Why should I use **Nothing** if there are better alternatives like [optional chaining] or [lodash.get]?
+Q-3: Why should I use **Nothing** if there are better alternatives like [optional chaining] or [lodash.get]?
 
 A: Each of these solutions have their pros and cons. Your choice should depend on the use-case:
 
 1. Optional chaining syntax would be the best choice, but it requires a transpilation step as modern browsers don't support the syntax and it might take a while before it will get into the future ECMAScript standard.
-1. `lodash.get` is good for a basic property chain traversal, but it requires an alien syntax and fails when there is a need to call a method somewhere in a property chain:
+2. `lodash.get` is good for a basic property chain traversal, but it requires an alien syntax and fails when there is a need to call a method somewhere in a property chain:
 
 ```js
 import get from 'lodash.get'
@@ -250,12 +250,12 @@ foo.bar.baz()[0].map(() => { /* do something */ })
 const get = (o, a) => a.reduce((p, c) => p && p[c], o)
 ```
 
-Q: I am still not convinced and ain't gonna use **Nothing**!
+Q-4: I am still not convinced and ain't gonna use **Nothing**!
 
 A: Thanks for letting me know! Seriously, it's your choice, I am down with it.
 
 ## License
-MIT
+**MIT**
 
 [Proxy]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy#Browser_compatibility
 [Symbol]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol#Browser_compatibility
