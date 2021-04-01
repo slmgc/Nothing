@@ -8,7 +8,11 @@
   "repository": "github:slmgc/Nothing",
   "main": "dist/nothing-mock.js",
   "module": "dist/nothing-mock.es.js",
+  "exports": "dist/nothing-mock.modern.js",
   "jsnext:main": "dist/nothing-mock.es.js",
+  "unpkg": "dist/nothing-mock.umd.js",
+  "source": "src/index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "microbundle --strict"
   },

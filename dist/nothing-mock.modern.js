@@ -1,0 +1,2 @@
+const e=(()=>{const t=()=>e;return t.toString=t.toLocaleString=t[Symbol.toPrimitive]=()=>"",t.valueOf=()=>!1,new Proxy(Object.freeze(t),{get:(t,r)=>t.hasOwnProperty(r)?t[r]:e})})(),t=e=>!(!e||!e.valueOf()),r=t=>t===e,n=t=>!(t===e||null==t),l=t=>JSON.stringify(t,(t,r)=>r===e?null:r),o=t=>JSON.parse(t,(t,r)=>null===r?e:r);export{e as Nothing,o as deserialize,r as isNothing,n as isSomething,l as serialize,t as toBool};
+//# sourceMappingURL=nothing-mock.modern.js.map
