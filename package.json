@@ -13,7 +13,7 @@
     "build": "microbundle --strict"
   },
   "devDependencies": {
-    "microbundle": "^0.4.4"
+    "microbundle": "^0.13.0"
   },
   "keywords": [
     "nothing",
