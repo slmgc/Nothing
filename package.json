@@ -1,6 +1,6 @@
 {
   "name": "nothing-mock",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "description": "A chainable, callable mock object which always returns itself",
   "author": "Vladimir Simonov <slmgc@ya.ru>",
@@ -17,7 +17,7 @@
     "build": "microbundle --strict"
   },
   "devDependencies": {
-    "microbundle": "^0.13.0"
+    "microbundle": "^0.15.1"
   },
   "keywords": [
     "nothing",
